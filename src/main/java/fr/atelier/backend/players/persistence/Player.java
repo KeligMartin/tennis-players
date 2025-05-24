@@ -1,5 +1,6 @@
 package fr.atelier.backend.players.persistence;
 
+import fr.atelier.backend.countries.persistence.Country;
 import fr.atelier.backend.players.persistence.playerdata.PlayerData;
 import jakarta.persistence.*;
 
@@ -7,6 +8,7 @@ import jakarta.persistence.*;
 public class Player {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
 	private String firstname;
@@ -22,6 +24,10 @@ public class Player {
 	@OneToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "data_id")
 	private PlayerData data;
+
+	@ManyToOne(cascade = CascadeType.PERSIST)
+	@JoinColumn(name = "country_id")
+	private Country country;
 
 	public Integer getId() {
 		return id;
@@ -73,5 +79,17 @@ public class Player {
 
 	public PlayerData getData() {
 		return data;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public Country getCountry() {
+		return country;
+	}
+
+	public void setCountry(Country country) {
+		this.country = country;
 	}
 }

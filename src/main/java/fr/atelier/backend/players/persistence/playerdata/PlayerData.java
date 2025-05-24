@@ -1,8 +1,6 @@
 package fr.atelier.backend.players.persistence.playerdata;
 
-import jakarta.persistence.ElementCollection;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.List;
 
@@ -10,6 +8,7 @@ import java.util.List;
 public class PlayerData {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
 	private Integer rank;
