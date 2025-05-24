@@ -7,4 +7,6 @@ import java.util.List;
 public interface IPlayerService {
 
 	List<Player> findAll();
+
+	Player findById(Integer id);
 }

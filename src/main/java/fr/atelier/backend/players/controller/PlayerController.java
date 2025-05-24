@@ -3,6 +3,7 @@ package fr.atelier.backend.players.controller;
 import fr.atelier.backend.players.service.IPlayerService;
 import fr.atelier.backend.players.persistence.Player;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,5 +23,10 @@ public class PlayerController {
 	@GetMapping
 	public List<Player> findAll() {
 		return this.playerService.findAll();
+	}
+
+	@GetMapping("/{id}")
+	public Player findById(@PathVariable Integer id) {
+		return this.playerService.findById(id);
 	}
 }

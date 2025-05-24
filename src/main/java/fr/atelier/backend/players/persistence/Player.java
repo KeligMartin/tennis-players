@@ -1,7 +1,7 @@
 package fr.atelier.backend.players.persistence;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import fr.atelier.backend.players.persistence.playerdata.PlayerData;
+import jakarta.persistence.*;
 
 @Entity
 public class Player {
@@ -18,6 +18,10 @@ public class Player {
 	private String sex;
 
 	private String picture;
+
+	@OneToOne(cascade = CascadeType.PERSIST)
+	@JoinColumn(name = "data_id")
+	private PlayerData data;
 
 	public Integer getId() {
 		return id;
@@ -61,5 +65,13 @@ public class Player {
 
 	public void setPicture(String picture) {
 		this.picture = picture;
+	}
+
+	public void setData(PlayerData data) {
+		this.data = data;
+	}
+
+	public PlayerData getData() {
+		return data;
 	}
 }
