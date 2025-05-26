@@ -31,15 +31,13 @@ public class PlayerTest {
 
 	@Test
 	void should_exists_player() {
-		// Given
+
 		Player player = new Player();
 		player.setId(1);
 		when(playerRepository.findById(1)).thenReturn(Optional.of(player));
 
-		// When
 		PlayerResource result = playerService.findById(1);
 
-		// Then
 		assertNotNull(result);
 		assertEquals(1, result.getId());
 	}
