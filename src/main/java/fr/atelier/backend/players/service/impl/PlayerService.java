@@ -1,5 +1,6 @@
 package fr.atelier.backend.players.service.impl;
 
+import fr.atelier.backend.players.dto.PlayerResource;
 import fr.atelier.backend.players.persistence.Player;
 import fr.atelier.backend.players.persistence.PlayerRepository;
 import fr.atelier.backend.players.persistence.specifications.PlayerSpecification;
@@ -33,8 +34,9 @@ public class PlayerService implements IPlayerService {
 	 * @throws 404 error if the player is not found
 	 */
 
-	public Player findById(Integer id) {
-		return playerRepository.findById(id).orElseThrow(() -> new NotFoundException("Player", id));
+	public PlayerResource findById(Integer id) {
+		var player = playerRepository.findById(id).orElseThrow(() -> new NotFoundException("Player", id));
+		return player.toResource();
 	}
 
 	/**

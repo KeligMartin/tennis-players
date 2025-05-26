@@ -1,5 +1,6 @@
 package fr.atelier.backend.players.service;
 
+import fr.atelier.backend.players.dto.PlayerResource;
 import fr.atelier.backend.players.persistence.Player;
 
 import java.util.List;
@@ -19,7 +20,7 @@ public interface IPlayerService {
 	 *
 	 * @return a unique player
 	 */
-	Player findById(Integer id);
+	PlayerResource findById(Integer id);
 
 	/**
 	 *

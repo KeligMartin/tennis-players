@@ -1,7 +1,10 @@
 package fr.atelier.backend.players.controller;
 
+import fr.atelier.backend.players.dto.PlayerResource;
 import fr.atelier.backend.players.service.IPlayerService;
 import fr.atelier.backend.players.persistence.Player;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,12 +24,12 @@ public class PlayerController {
 
 
 	@GetMapping
-	public List<Player> findAll() {
-		return this.playerService.findAll();
+	public ResponseEntity<List<Player>> findAll() {
+		return new ResponseEntity<>(this.playerService.findAll(), HttpStatus.OK);
 	}
 
 	@GetMapping("/{id}")
-	public Player findById(@PathVariable Integer id) {
-		return this.playerService.findById(id);
+	public ResponseEntity<PlayerResource> findById(@PathVariable Integer id) {
+		return new ResponseEntity<>(this.playerService.findById(id), HttpStatus.OK);
 	}
 }

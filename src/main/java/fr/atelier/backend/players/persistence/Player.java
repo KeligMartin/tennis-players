@@ -1,6 +1,7 @@
 package fr.atelier.backend.players.persistence;
 
 import fr.atelier.backend.countries.persistence.Country;
+import fr.atelier.backend.players.dto.PlayerResource;
 import fr.atelier.backend.players.persistence.playerdata.PlayerData;
 import jakarta.persistence.*;
 
@@ -91,5 +92,17 @@ public class Player {
 
 	public void setCountry(Country country) {
 		this.country = country;
+	}
+
+	public PlayerResource toResource() {
+		PlayerResource playerResource = new PlayerResource();
+		playerResource.setFirstname(firstname);
+		playerResource.setLastname(lastname);
+		playerResource.setShortname(shortname);
+		playerResource.setPicture(picture);
+		playerResource.setShortname(shortname);
+		playerResource.setId(id);
+		playerResource.setSex(sex);
+		return playerResource;
 	}
 }
