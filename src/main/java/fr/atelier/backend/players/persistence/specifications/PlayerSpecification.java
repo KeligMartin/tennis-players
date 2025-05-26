@@ -8,7 +8,7 @@ public class PlayerSpecification {
 
 	public static Specification<Player> orderByRank() {
 		return ((root, query, criteriaBuilder) -> {
-			query.orderBy(criteriaBuilder.desc(root.join("data").get("rank")));
+			query.orderBy(criteriaBuilder.asc(root.join("data").get("rank")));
 			return criteriaBuilder.conjunction();
 		});
 	}
