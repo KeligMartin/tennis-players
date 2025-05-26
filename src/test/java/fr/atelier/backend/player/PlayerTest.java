@@ -63,7 +63,7 @@ public class PlayerTest {
 		List<Player> players = Arrays.asList(player1, player2, player3);
 		when(playerRepository.findAll(PlayerSpecification.orderByRank())).thenReturn(players);
 
-		List<Player> sortedPlayers = playerService.findAll();
+		List<PlayerResource> sortedPlayers = playerService.findAll();
 
 		assertEquals(3, sortedPlayers.size());
 		assertEquals(1, sortedPlayers.get(0).getId()); // rank 2

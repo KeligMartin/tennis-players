@@ -1,16 +1,9 @@
-package fr.atelier.backend.players.persistence.playerdata;
+package fr.atelier.backend.players.dto;
 
-import fr.atelier.backend.players.dto.DataResource;
-import jakarta.persistence.*;
 
 import java.util.List;
 
-@Entity
-public class PlayerData {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+public class DataResource {
 
 	private Integer rank;
 	private Integer points;
@@ -18,16 +11,7 @@ public class PlayerData {
 	private Integer height;
 	private Integer age;
 
-	@ElementCollection
 	private List<Integer> last;
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
 
 	public Integer getRank() {
 		return rank;
@@ -75,16 +59,5 @@ public class PlayerData {
 
 	public void setLast(List<Integer> last) {
 		this.last = last;
-	}
-
-	public DataResource toResource() {
-		DataResource dataResource = new DataResource();
-		dataResource.setAge(this.age);
-		dataResource.setHeight(this.height);
-		dataResource.setWeight(this.weight);
-		dataResource.setPoints(this.points);
-		dataResource.setRank(this.rank);
-		dataResource.setLast(this.last);
-		return dataResource;
 	}
 }

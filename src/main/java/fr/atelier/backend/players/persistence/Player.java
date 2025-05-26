@@ -31,11 +31,11 @@ public class Player {
 	private Country country;
 
 	public Integer getId() {
-		return id;
+		return this.id;
 	}
 
 	public String getFirstname() {
-		return firstname;
+		return this.firstname;
 	}
 
 	public void setFirstname(String firstname) {
@@ -43,7 +43,7 @@ public class Player {
 	}
 
 	public String getLastname() {
-		return lastname;
+		return this.lastname;
 	}
 
 	public void setLastname(String lastname) {
@@ -51,7 +51,7 @@ public class Player {
 	}
 
 	public String getShortname() {
-		return shortname;
+		return this.shortname;
 	}
 
 	public void setShortname(String shortname) {
@@ -59,7 +59,7 @@ public class Player {
 	}
 
 	public String getSex() {
-		return sex;
+		return this.sex;
 	}
 
 	public void setSex(String sex) {
@@ -67,7 +67,7 @@ public class Player {
 	}
 
 	public String getPicture() {
-		return picture;
+		return this.picture;
 	}
 
 	public void setPicture(String picture) {
@@ -79,7 +79,7 @@ public class Player {
 	}
 
 	public PlayerData getData() {
-		return data;
+		return this.data;
 	}
 
 	public void setId(Integer id) {
@@ -87,7 +87,7 @@ public class Player {
 	}
 
 	public Country getCountry() {
-		return country;
+		return this.country;
 	}
 
 	public void setCountry(Country country) {
@@ -96,13 +96,19 @@ public class Player {
 
 	public PlayerResource toResource() {
 		PlayerResource playerResource = new PlayerResource();
-		playerResource.setFirstname(firstname);
-		playerResource.setLastname(lastname);
-		playerResource.setShortname(shortname);
-		playerResource.setPicture(picture);
-		playerResource.setShortname(shortname);
-		playerResource.setId(id);
-		playerResource.setSex(sex);
+		if(data != null) {
+			playerResource.setData(this.data.toResource());
+		}
+		if(country != null) {
+			playerResource.setCountry(this.country.toResource());
+		}
+		playerResource.setFirstname(this.firstname);
+		playerResource.setLastname(this.lastname);
+		playerResource.setShortname(this.shortname);
+		playerResource.setPicture(this.picture);
+		playerResource.setShortname(this.shortname);
+		playerResource.setId(this.id);
+		playerResource.setSex(this.sex);
 		return playerResource;
 	}
 }

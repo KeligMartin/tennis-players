@@ -1,5 +1,7 @@
 package fr.atelier.backend.players.dto;
 
+import fr.atelier.backend.countries.dto.CountryResource;
+
 public class PlayerResource {
 	private Integer id;
 
@@ -12,6 +14,10 @@ public class PlayerResource {
 	private String sex;
 
 	private String picture;
+
+	private DataResource data;
+
+	private CountryResource country;
 
 	public Integer getId() {
 		return id;
@@ -59,5 +65,21 @@ public class PlayerResource {
 
 	public void setPicture(String picture) {
 		this.picture = picture;
+	}
+
+	public DataResource getData() {
+		return data;
+	}
+
+	public void setData(DataResource data) {
+		this.data = data;
+	}
+
+	public CountryResource getCountry() {
+		return country;
+	}
+
+	public void setCountry(CountryResource country) {
+		this.country = country;
 	}
 }

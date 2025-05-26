@@ -8,6 +8,7 @@ import fr.atelier.backend.players.service.IPlayerService;
 import fr.atelier.backend.utils.exception.NotFoundException;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class PlayerService implements IPlayerService {
 
@@ -22,8 +23,8 @@ public class PlayerService implements IPlayerService {
 	 * @return all players ordered by rank
 	 */
 
-	public List<Player> findAll() {
-		return playerRepository.findAll(PlayerSpecification.orderByRank());
+	public List<PlayerResource> findAll() {
+		return playerRepository.findAll(PlayerSpecification.orderByRank()).stream().map(Player::toResource).collect(Collectors.toList());
 	}
 
 	/**

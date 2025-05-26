@@ -12,7 +12,7 @@ public interface IPlayerService {
 	 *
 	 * @return a list of players
 	 */
-	List<Player> findAll();
+	List<PlayerResource> findAll();
 
 	/**
 	 *

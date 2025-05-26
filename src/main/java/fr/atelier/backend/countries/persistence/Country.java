@@ -1,6 +1,7 @@
 package fr.atelier.backend.countries.persistence;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import fr.atelier.backend.countries.dto.CountryResource;
 import fr.atelier.backend.players.persistence.Player;
 import jakarta.persistence.*;
 
@@ -21,7 +22,7 @@ public class Country {
 	private List<Player> players;
 
 	public Integer getId() {
-		return id;
+		return this.id;
 	}
 
 	public void setId(Integer id) {
@@ -29,7 +30,7 @@ public class Country {
 	}
 
 	public String getPicture() {
-		return picture;
+		return this.picture;
 	}
 
 	public void setPicture(String picture) {
@@ -37,7 +38,7 @@ public class Country {
 	}
 
 	public String getCode() {
-		return code;
+		return this.code;
 	}
 
 	public void setCode(String code) {
@@ -45,6 +46,13 @@ public class Country {
 	}
 
 	public List<Player> getPlayers() {
-		return players;
+		return this.players;
+	}
+
+	public CountryResource toResource() {
+		CountryResource resource = new CountryResource();
+		resource.setPicture(this.picture);
+		resource.setCode(this.code);
+		return resource;
 	}
 }

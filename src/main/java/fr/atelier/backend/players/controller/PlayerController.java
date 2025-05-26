@@ -24,7 +24,7 @@ public class PlayerController {
 
 
 	@GetMapping
-	public ResponseEntity<List<Player>> findAll() {
+	public ResponseEntity<List<PlayerResource>> findAll() {
 		return new ResponseEntity<>(this.playerService.findAll(), HttpStatus.OK);
 	}
 
